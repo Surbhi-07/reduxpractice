@@ -1,4 +1,4 @@
-const initialState=20;
+const initialState=10;
 const Decrement= (state=initialState,action)=>{
     switch(action.type){
         case 'DECREMENT':

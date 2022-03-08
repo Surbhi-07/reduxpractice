@@ -1,21 +1,23 @@
 import React from 'react'
-import './App.css'
-import { useSelector, useDispatch } from 'react-redux'
-import { Increment } from './Action/Action'
-import { Decrement  } from './Action/Action'
+import Navbar from './Navbar/Navbar' 
+import Home from './Component/Home'
+import Calculator from './Component/Calculator'
+import DealApi from './Component/DealApi'
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-const App = () => {
-  const myState = useSelector((state)=> state.Increment)
-  const mystate = useSelector((state)=> state.Decrement)
-  const Dispatch = useDispatch();
-  return (
+function App(){
+  return(
     <div>
-      <h1>Increment Count {myState}</h1>
-        <h1>Decrement Count {mystate}</h1>
-        <button onClick={()=>Dispatch(Increment())}>ADD</button>
-        <button onClick={()=>Dispatch(Decrement())}>SUB</button>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path ="/home" element={<Home />} />
+          <Route path ="/calculator" element ={<Calculator />} />
+          <Route path ="/DealApi" element ={<DealApi />} />
+         
+        </Routes>
+      </Router>
     </div>
   )
 }
-
 export default App
